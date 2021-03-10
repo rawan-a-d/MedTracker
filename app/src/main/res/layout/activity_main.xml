@@ -26,4 +26,13 @@
         app:menu="@menu/menu_navigation"
         android:layout_alignParentBottom="true"/>
 
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/profile"
+        app:itemBackground="@color/teal_700"
+        app:menu="@menu/profile_menu"
+        android:background="@color/teal_700"
+        android:layout_alignParentBottom="false"/>
+
 </RelativeLayout>
