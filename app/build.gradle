@@ -50,4 +50,7 @@ dependencies {
     // Add the dependency for the Firebase SDK for Google Analytics
     // When using the BoM, don't specify versions in Firebase dependencies
     implementation 'com.google.firebase:firebase-analytics-ktx'
+
+    //navigating bottom 1.0.0 newer 1.3.0 resource: https://www.youtube.com/watch?v=JjfSjMs0ImQ
+    implementation 'com.google.android.material:material:1.3.0'
 }
