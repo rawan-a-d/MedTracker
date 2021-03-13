@@ -21,8 +21,6 @@ class MainActivity : AppCompatActivity() {
         bottomNavigator.setOnNavigationItemSelectedListener { item ->
             when (item.itemId) {
                 R.id.home -> {
-//                    val intent = Intent(this, MainActivity::class.java)
-//                    startActivity(intent)
                     true
                 }
                 R.id.myMedicines -> {
@@ -31,10 +29,10 @@ class MainActivity : AppCompatActivity() {
                     true
                 }
                 //for the switch profile tab
-//                R.id.action_music -> {
+//                R.id.switchProfiles -> {
 //                }
             }
-            false
+            true
         }
     }
 }
