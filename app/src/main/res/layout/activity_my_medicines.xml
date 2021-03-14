@@ -23,7 +23,7 @@
         android:layout_marginEnd="133dp"
         android:layout_marginRight="133dp"
         android:layout_marginBottom="550dp"
-        android:backgroundTint="@color/teal_700"
+        android:backgroundTint="@color/light_blue"
         android:drawableTop="@drawable/ic_forward" />
 
     <Button
@@ -42,7 +42,6 @@
         android:layout_marginEnd="215dp"
         android:layout_marginRight="133dp"
         android:layout_marginBottom="550dp"
-        android:backgroundTint="@color/teal_700"
         android:drawableTop="@drawable/ic_backword" />
 
     <TextView
@@ -69,7 +68,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/bottom_navigator"
-        app:itemBackground="@color/teal_700"
+        app:itemBackground="@color/light_blue"
         app:itemTextColor="@drawable/selector"
         app:itemIconTint="@drawable/selector"
         app:menu="@menu/menu_navigation"

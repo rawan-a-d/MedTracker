@@ -2,6 +2,9 @@ plugins {
     id 'com.android.application'
     id 'kotlin-android'
     id 'com.google.gms.google-services'
+    id 'kotlin-android-extensions'
+    id 'kotlin-kapt'
+    id 'androidx.navigation.safeargs'
 }
 
 android {
@@ -18,6 +21,8 @@ android {
         //to solve cannit fit requested classes error
         multiDexEnabled true
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        multiDexEnabled true
     }
 
     buildTypes {
@@ -42,8 +47,7 @@ dependencies {
     implementation 'androidx.appcompat:appcompat:1.2.0'
     implementation 'com.google.android.material:material:1.3.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
-    //added
-    implementation 'com.google.firebase:firebase-firestore-ktx:22.1.1'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
@@ -58,18 +62,28 @@ dependencies {
     //navigating bottom 1.0.0 newer 1.3.0 resource: https://www.youtube.com/watch?v=JjfSjMs0ImQ
     implementation 'com.google.android.material:material:1.3.0'
 
-    //to solve cannit fit requested classes error
+    //to solve cannot fit requested classes error
     implementation 'androidx.multidex:multidex:2.0.1'
 
     implementation 'com.google.firebase:firebase-analytics:17.2.1'
     implementation 'com.google.firebase:firebase-database:19.2.0'
 
     //for view model
-//    implementation 'androidx.lifecycle:lifecycle-extensions:2.2.0'
+     implementation 'androidx.lifecycle:lifecycle-extensions:2.2.0'
 
     // FirebaseUI for Cloud Firestore
-//    implementation 'com.firebaseui:firebase-ui-firestore:7.1.1'
+    implementation 'com.firebaseui:firebase-ui-firestore:7.1.1'
 
-//    implementation "com.google.firebase:firebase-firestore:11.4.2"
-//    implementation "com.firebaseui:firebase-ui-auth:3.0.0"
+    implementation "com.google.firebase:firebase-firestore:22.1.1"
+    implementation "com.firebaseui:firebase-ui-auth:3.0.0"
+
+    // Cannot fit requested classes in a single dex file
+    implementation 'com.android.support:multidex:1.0.3'
+
+    // ViewModel and LiveData
+    implementation "androidx.lifecycle:lifecycle-extensions:2.2.0"
+
+    //Android Navigation Architecture
+    implementation "androidx.navigation:navigation-fragment-ktx:2.2.0"
+    implementation "androidx.navigation:navigation-ui-ktx:2.2.0"
 }

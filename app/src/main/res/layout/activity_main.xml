@@ -20,7 +20,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/bottom_navigator"
-        app:itemBackground="@color/teal_700"
+        app:itemBackground="@color/light_blue"
         app:itemTextColor="@drawable/selector"
         app:itemIconTint="@drawable/selector"
         app:menu="@menu/menu_navigation"
@@ -30,9 +30,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/profile"
-        app:itemBackground="@color/teal_700"
+        app:itemBackground="@color/light_blue"
         app:menu="@menu/profile_menu"
-        android:background="@color/teal_700"
+        android:background="@color/light_blue"
         android:layout_alignParentBottom="false"/>
 
 </RelativeLayout>
