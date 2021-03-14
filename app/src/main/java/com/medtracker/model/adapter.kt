@@ -21,7 +21,7 @@ class adapter(context: Context, val layoutResId: Int, val medList: List<Prescrip
 
         val medicines = medList[position]
 
-        medName.text = medicines.medicine_id
+        medName.text = medicines.medicine?.name
         info.text = medicines.dose.toString() + " pill(s)  " + medicines.frequency.toString() + " times per day"
         divider.text = "_____________________________________________________"
 

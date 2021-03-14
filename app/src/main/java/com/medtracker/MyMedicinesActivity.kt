@@ -4,51 +4,40 @@ import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.View
-import android.widget.ArrayAdapter
+import android.widget.Button
 import android.widget.ListView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import com.google.firebase.database.*
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.firestore.FirebaseFirestore
 import com.medtracker.model.Prescription
 import com.medtracker.model.adapter
-import com.medtracker.model.medicine
+
 
 class MyMedicinesActivity : AppCompatActivity() {
 
-//    //firebase variables
-//    private lateinit var database: DatabaseReference
-//
-//    //android layout
-//    private lateinit var listView: ListView
-//
-//    //array list
-//    private var arryList: ArrayList<String> = ArrayList()
-//    private lateinit var adapter: ArrayAdapter<String>
-
-//    private lateinit var medicinesList: RecyclerView
-//    // CLOUD FIRE STORE
-//    private lateinit var fireBaseStore: FirebaseFirestore
-//    private var adapter: MedicineFirestoreRecyclerAdapter? = null
-
-    lateinit var view: View
-
     lateinit var listview: ListView
+    lateinit var currentMedBtn: Button
+    lateinit var previousMedBtn: Button
 
     lateinit var ref: DatabaseReference
-     var medicinesList: MutableList<Prescription>  = mutableListOf()
+    var medicinesList: MutableList<Prescription>  = mutableListOf()
 
-//    lateinit var  textView: TextView
-//    lateinit var txt: TextView
+    lateinit var  test: TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_my_medicines)
 
-        GetMyMedicines()
+        GetMyCurrentMedicines()
+
         ref = FirebaseDatabase.getInstance().getReference("medicines")
         listview = findViewById(R.id.medicinesList)
+        currentMedBtn = findViewById(R.id.buttonNow)
+        previousMedBtn = findViewById(R.id.buttonHistory)
+        test = findViewById(R.id.testy)
 
         /* Bottom nav bar*/
 
@@ -76,9 +65,17 @@ class MyMedicinesActivity : AppCompatActivity() {
             }
             true
         }
+
+        currentMedBtn.setOnClickListener{
+            GetMyCurrentMedicines()
+        }
+
+        previousMedBtn.setOnClickListener{
+            GetMyOldMedicines()
+        }
     }
 
-    private fun GetMyMedicines() {
+    private fun GetMyCurrentMedicines() {
 
 //        val db = FirebaseFirestore.getInstance()
 //
@@ -96,8 +93,7 @@ class MyMedicinesActivity : AppCompatActivity() {
 //                    Log.w("TAG", "Error getting documents: ", exception)
 //                }
 
-
-
+        medicinesList.clear()
 
         val db = FirebaseFirestore.getInstance()
         db.collection("prescription")
@@ -106,16 +102,46 @@ class MyMedicinesActivity : AppCompatActivity() {
             .get()
             .addOnCompleteListener {
                 val result: StringBuffer = StringBuffer()
-                Log.d("hi","in coplete listner")
                 if(it.isSuccessful){
-                    Log.d("hi","in sucess complete listner")
-
                     for (med in it.result!!){
-                        result.append(med.data.getValue("medicine_id")).append(med.data.getValue("dose"))
-                                .append(med.data.getValue("frequency"))
+//                        result.append(med.data.getValue("medicine")).append(med.data.getValue("dose"))
+//                                .append(med.data.getValue("frequency"))
                         val medicine = med.toObject(Prescription::class.java)
 //                        medicinesList.add(result.toString())
 
+                        Log.d("****", medicine.toString())
+
+                        medicinesList.add(medicine)
+                    }
+                    val adapter = adapter(applicationContext, R.layout.medicines, medicinesList)
+//                  test.text = result
+                    listview.adapter = adapter
+                }
+            }.addOnFailureListener{
+                Log.d("Failled", "Failed to get data");
+            }
+    }
+
+    private fun GetMyOldMedicines() {
+
+        medicinesList.clear()
+
+        val db = FirebaseFirestore.getInstance()
+        db.collection("prescription")
+            .whereEqualTo("is_done", true)
+            .whereEqualTo("user_id", "2tq1GuRAtwtJCuJtgZeS")
+            .get()
+            .addOnCompleteListener {
+                val result: StringBuffer = StringBuffer()
+                if(it.isSuccessful){
+
+                    for (med in it.result!!){
+//                        result.append(med.data.getValue("dose")).append(med.data.getValue("frequency"))
+//                            .append(med.data.getValue("medicine"))
+                        val medicine = med.toObject(Prescription::class.java)
+//                        medicinesList.add(result.toString())
+
+                        Log.d("*******" , medicine.toString())
                         medicinesList.add(medicine)
                     }
                     val adapter = adapter(applicationContext, R.layout.medicines, medicinesList)
