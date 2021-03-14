@@ -3,6 +3,7 @@ package com.medtracker
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import android.widget.ArrayAdapter
 import android.widget.ListView
 import android.widget.TextView
@@ -10,6 +11,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.firebase.database.*
 import com.google.firebase.firestore.FirebaseFirestore
+import com.medtracker.model.Prescription
 import com.medtracker.model.adapter
 import com.medtracker.model.medicine
 
@@ -30,105 +32,31 @@ class MyMedicinesActivity : AppCompatActivity() {
 //    private lateinit var fireBaseStore: FirebaseFirestore
 //    private var adapter: MedicineFirestoreRecyclerAdapter? = null
 
+    lateinit var view: View
+
     lateinit var listview: ListView
 
     lateinit var ref: DatabaseReference
-     var medicinesList: MutableList<String>  = mutableListOf()
+     var medicinesList: MutableList<Prescription>  = mutableListOf()
 
-    lateinit var  textView: TextView
+//    lateinit var  textView: TextView
+//    lateinit var txt: TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_my_medicines)
 
-        GetMeStuff()
+        GetMyMedicines()
         ref = FirebaseDatabase.getInstance().getReference("medicines")
-
         listview = findViewById(R.id.medicinesList)
-        textView = findViewById(R.id.testy)
-
-        ref.addValueEventListener(object: ValueEventListener{
-             var Ranim: String = "test"
-            override fun onDataChange(snapshot: DataSnapshot) {
-
-                Log.d("RanimSnap", "in medicinres list")
-                if (snapshot.exists()){
-                    Log.d("RanimSnap", "in medicinres list")
-                    for (med in snapshot.children){
-                        val medicine = med.getValue(medicine::class.java)
-                        Log.d("RanimSnap", "in medicinres list")
-                        if (medicine != null) {
-                            Log.d("Ranim", "in medicinres list")
-//                            medicinesList.add(medicine)
-                        }
-                    }
-
-//                    val adapter = adapter(applicationContext, R.layout.medicines, medicinesList)
-//                    listview.adapter = adapter
-
-                }
-
-            }
-            override fun onCancelled(error: DatabaseError) {
-                TODO("Not yet implemented")
-                Log.d("RanimError", "in medicinres list")
-
-            }
-
-        })
-
-        /*Show all prescriped medicines*/
-//        database = FirebaseDatabase.getInstance().getReference()
-//
-//        var medList = findViewById<ListView>(R.id.medicinesList)
-//
-//        adapter = ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, arryList)
-//
-//        medList.adapter = adapter
-//
-//        val childEventListener = object : ChildEventListener {
-//            override fun onChildAdded(dataSnapshot: DataSnapshot, previousChildName: String?) {
-//            }
-//
-//            override fun onChildChanged(dataSnapshot: DataSnapshot, previousChildName: String?) {
-//            }
-//
-//            override fun onChildRemoved(dataSnapshot: DataSnapshot) {
-//            }
-//
-//            override fun onChildMoved(dataSnapshot: DataSnapshot, previousChildName: String?) {
-//            }
-//
-//            override fun onCancelled(databaseError: DatabaseError) {
-//            }
-//        }
-//        database.addChildEventListener(childEventListener)
-
-
-        //get instance of fire base cloud
-//        fireBaseStore = FirebaseFirestore.getInstance()
-//
-//        /*show medicines*/
-//        medicinesList = findViewById(R.id.medicinesList)
-//
-//        //Query to get medicines
-//        val query: Query = fireBaseStore.collection("medicines")
-//        //recycler options
-//        val options: FirestoreRecyclerOptions<medicineModel> = FirestoreRecyclerOptions.Builder<medicineModel>()
-//            .setQuery(query, medicineModel::class.java).build()
-//
-//        adapter = MedicineFirestoreRecyclerAdapter(options)
-////        medicinesList.adapter = adapter
-//        medicinesList.setHasFixedSize(true)
-//        medicinesList.adapter = adapter
-
 
         /* Bottom nav bar*/
+
         //intialize and assign functionalities
         val bottomNavigator = findViewById<BottomNavigationView>(R.id.bottom_navigator)
 
         //set the selected icon on mymedicines page
-//        bottomNavigator.setSelectedItemId(R.id.MyMedicines)
+        //bottomNavigator.setSelectedItemId(R.id.MyMedicines)
         bottomNavigator.selectedItemId = R.id.myMedicines
 
         //navigation functionalities
@@ -150,9 +78,31 @@ class MyMedicinesActivity : AppCompatActivity() {
         }
     }
 
-    private fun GetMeStuff() {
+    private fun GetMyMedicines() {
+
+//        val db = FirebaseFirestore.getInstance()
+//
+//        db.collection("medicines")
+////                .whereEqualTo("company", "my Company")
+//                .get()
+//                .addOnSuccessListener { documents ->
+//                    for (document in documents) {
+//                        Log.d("TAG Helooooooo", "${document.id} => ${document.data}")
+//                        val adapter = adapter(applicationContext, R.layout.medicines, medicinesList)
+//                        listview.adapter = adapter
+//                    }
+//                }
+//                .addOnFailureListener { exception ->
+//                    Log.w("TAG", "Error getting documents: ", exception)
+//                }
+
+
+
+
         val db = FirebaseFirestore.getInstance()
-        db.collection("medicines")
+        db.collection("prescription")
+            .whereEqualTo("is_done", false)
+            .whereEqualTo("user_id", "2tq1GuRAtwtJCuJtgZeS")
             .get()
             .addOnCompleteListener {
                 val result: StringBuffer = StringBuffer()
@@ -161,60 +111,22 @@ class MyMedicinesActivity : AppCompatActivity() {
                     Log.d("hi","in sucess complete listner")
 
                     for (med in it.result!!){
-                        result.append(med.data.getValue("name")).append(" ")
-//                        val medicine = med.getValue(medicine::class.java)
+                        result.append(med.data.getValue("medicine_id")).append(med.data.getValue("dose"))
+                                .append(med.data.getValue("frequency"))
+                        val medicine = med.toObject(Prescription::class.java)
 //                        medicinesList.add(result.toString())
-                    }
-                     textView.text = result
-//                    val adapter = adapter(applicationContext, R.layout.medicines, medicinesList)
-//                    listview.adapter = adapter
 
+                        medicinesList.add(medicine)
+                    }
+                    val adapter = adapter(applicationContext, R.layout.medicines, medicinesList)
+//                  textView.text = result
+                    listview.adapter = adapter
                 }
             }.addOnFailureListener{
-                Log.d("hi", "hi2");
+                Log.d("Failled", "Failed to get data");
             }
-        val medicine: MutableMap<String, Any> = HashMap()
-        medicine[""]
 
     }
 
-//    override fun onStart() {
-//        super.onStart()
-//        adapter?.startListening()
-//    }
-//
-//    override fun onStop() {
-//        super.onStop()
-//        adapter?.stopListening()
-//    }
 
 }
-
-
-//private class MedicinesViewHolder internal constructor(private val view: View) : RecyclerView.ViewHolder(view) {
-////    internal fun setMedicineName(medName: String) {
-////        val textView = view.findViewById<TextView>(R.id.medName)
-////        textView.text = medName
-////    }
-//
-//    var medName = view.findViewById<TextView>(R.id.medName)
-//
-//    public fun ViewHolder(@NonNull itemView: View){
-//        super.itemView
-//        medName = itemView.findViewById(R.id.medName)
-//
-//    }
-//}
-//
-//private class MedicineFirestoreRecyclerAdapter internal constructor(options: FirestoreRecyclerOptions<medicineModel>) : FirestoreRecyclerAdapter<medicineModel, MedicinesViewHolder>(options) {
-//
-//    @NonNull
-//    override fun onCreateViewHolder(@NonNull parent: ViewGroup, viewType: Int): MedicinesViewHolder {
-//        val view = LayoutInflater.from(parent.context).inflate(R.layout.single_medicine_item, parent, false)
-//        return MedicinesViewHolder(view)
-//    }
-//
-//    override fun onBindViewHolder(holder: MedicinesViewHolder, position: Int, model: medicineModel) {
-//        holder.medName.setText(model.getName())
-//    }
-//}
