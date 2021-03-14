@@ -1,6 +1,5 @@
 package com.medtracker
 
-import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -11,25 +10,24 @@ import android.widget.Toast
 import com.google.android.gms.tasks.OnCompleteListener
 import com.google.firebase.auth.AuthResult
 import com.google.firebase.auth.FirebaseAuth
+import com.medtracker.model.Shared_Prefs
 
 class LoginActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
 
-        // get shared preferences in mode private (only this app can access them)
-        val sharedPref = getSharedPreferences("LOGIN_INFO", Context.MODE_PRIVATE)
-
         // Shared preferences
-        val editor = sharedPref.edit()
+        val prefs = PreferenceHelper.customPrefs(this, Shared_Prefs)
+        val editor = prefs.edit()
 
         // get credentials
-        val username = sharedPref.getString("email", null)
-        val password = sharedPref.getString("password", null)
+        val username = prefs.getString("email", null)
+        val password = prefs.getString("password", null)
 
         if(username != null && password != null) {
             // redirect to main
-            val intent = Intent(this, MainActivity::class.java)
+            val intent = Intent(this, ChooseProfileActivity::class.java)
             startActivity(intent)
         }
 
@@ -88,7 +86,7 @@ class LoginActivity : AppCompatActivity() {
                                     }
 
                                     // redirect to main page
-                                    val intent = Intent(this, MainActivity::class.java)
+                                    val intent = Intent(this, ChooseProfileActivity::class.java)
                                     startActivity(intent)
                                 }
                                 else {
