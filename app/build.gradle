@@ -86,4 +86,15 @@ dependencies {
     //Android Navigation Architecture
     implementation "androidx.navigation:navigation-fragment-ktx:2.2.0"
     implementation "androidx.navigation:navigation-ui-ktx:2.2.0"
+
+
+    //used for generating QRCODE
+    implementation 'com.journeyapps:zxing-android-embedded:3.0.2@aar'
+    implementation 'com.google.zxing:core:3.2.0'
+
+    implementation 'com.squareup.picasso:picasso:2.71828'
+
+    //used for Scanning QRCODE
+    implementation 'com.journeyapps:zxing-android-embedded:3.6.0'
+
 }

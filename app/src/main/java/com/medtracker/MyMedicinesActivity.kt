@@ -3,15 +3,13 @@ package com.medtracker
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
-import android.widget.ArrayAdapter
 import android.widget.ListView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.firebase.database.*
 import com.google.firebase.firestore.FirebaseFirestore
-import com.medtracker.model.adapter
-import com.medtracker.model.medicine
+import com.medtracker.model.Medicine
 
 class MyMedicinesActivity : AppCompatActivity() {
 
@@ -55,7 +53,7 @@ class MyMedicinesActivity : AppCompatActivity() {
                 if (snapshot.exists()){
                     Log.d("RanimSnap", "in medicinres list")
                     for (med in snapshot.children){
-                        val medicine = med.getValue(medicine::class.java)
+                        val medicine = med.getValue(Medicine::class.java)
                         Log.d("RanimSnap", "in medicinres list")
                         if (medicine != null) {
                             Log.d("Ranim", "in medicinres list")
