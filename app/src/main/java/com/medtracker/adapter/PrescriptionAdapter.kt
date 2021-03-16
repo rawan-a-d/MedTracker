@@ -9,7 +9,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
-import androidx.core.content.ContextCompat.startActivity
 import com.medtracker.R
 import com.medtracker.handler.QRHandler
 import com.medtracker.model.Prescription
@@ -35,32 +34,32 @@ class PrescriptionAdapter(context: Context, val layoutResId: Int, val medList: L
 
         qrBtn.setOnClickListener {
 
-//            // create a new view
-//            context = parent.context
-//            val alertbox = AlertDialog.Builder(view.getRootView().getContext())
-//            val itemLayoutView: View = LayoutInflater.from(context).inflate(
-//                    R.layout.qr_dialog, null)
-//
-//            var qr = itemLayoutView.findViewById<View>(R.id.qrImageView) as ImageView
-//
-//
-//            val medicineName = medicines.medicine?.name
-//            val medicineId = medicines.medicine?.id
-//
-//            qr.setImageBitmap(
-//                    QRHandler.StringToQRCode(
-//                            context,
-//                            "Medicine name: " + medicineName + " with id: " + medicineId
-//                    )
-//            )
-//
-//            alertbox.setView(itemLayoutView)
-//
-//            alertbox.show()
+            // create a new view
+            context = parent.context
+            val alertbox = AlertDialog.Builder(view.getRootView().getContext())
+            val itemLayoutView: View = LayoutInflater.from(context).inflate(
+                    R.layout.qr_dialog, null)
+
+            var qr = itemLayoutView.findViewById<View>(R.id.qrImageView) as ImageView
+
+
+            val medicineName = medicines.medicine?.name
+            val medicineId = medicines.medicine?.id
+
+            qr.setImageBitmap(
+                    QRHandler.StringToQRCode(
+                            context,
+                            "Medicine name: " + medicineName + " with id: " + medicineId
+                    )
+            )
+
+            alertbox.setView(itemLayoutView)
+
+            alertbox.show()
 
 
 
-            Toast.makeText(this.context, "Med id is: " + medicines.medicine?.id, Toast.LENGTH_LONG).show()
+//            Toast.makeText(this.context, "Med id is: " + medicines.medicine?.id, Toast.LENGTH_LONG).show()
 
         }
 
