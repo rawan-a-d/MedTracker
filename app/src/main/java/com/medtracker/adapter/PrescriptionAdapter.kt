@@ -1,21 +1,21 @@
 package com.medtracker.adapter
 
+import android.annotation.SuppressLint
 import android.app.AlertDialog
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ArrayAdapter
-import android.widget.Button
-import android.widget.TextView
-import android.widget.Toast
+import android.widget.*
 import com.medtracker.R
+import com.medtracker.handler.QRHandler
 import com.medtracker.model.Prescription
 
 
 class PrescriptionAdapter(context: Context, val layoutResId: Int, val medList: List<Prescription>):
     ArrayAdapter<Prescription>(context,layoutResId,medList) {
 
+    @SuppressLint("ViewHolder")
     override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
         val layoutInflater: LayoutInflater = LayoutInflater.from(context)
         val view: View = layoutInflater.inflate(layoutResId, null)
@@ -25,25 +25,39 @@ class PrescriptionAdapter(context: Context, val layoutResId: Int, val medList: L
         val divider = view.findViewById<TextView>(R.id.divider)
         val qrBtn = view.findViewById<Button>(R.id.qrButton)
 
-        val medicines = medList[position]
+        var context:Context
 
+
+        val medicines = medList[position]
 
         qrBtn.setOnClickListener {
 
+            // create a new view
+            context = parent.context
             val alertbox = AlertDialog.Builder(view.getRootView().getContext())
-            alertbox.setMessage("No Internet Connection")
-            alertbox.setTitle("Warning")
+            val itemLayoutView: View = LayoutInflater.from(context).inflate(
+                    R.layout.qr_dialog, null)
 
-            alertbox.setNeutralButton("OK"
-            ) { arg0, arg1 -> }
+            var qr = itemLayoutView.findViewById<View>(R.id.qrImageView) as ImageView
+
+
+            val medicineName = medicines.medicine?.name
+
+            qr.setImageBitmap(
+                    QRHandler.StringToQRCode(
+                            context,
+                            medicineName
+
+                    )
+            )
+
+            alertbox.setView(itemLayoutView)
+
             alertbox.show()
 
 
-//            val dialog = LayoutInflater.from(this).inflate(R.layout.qr_dialog, null)
-//            val builder = AlertDialog.Builder(this).setView(dialog).setTitle("Qr_Code")
-//            val alert = builder.show()
 
-            Toast.makeText(this.context, "Med id is: " + medicines.medicine?.id, Toast.LENGTH_LONG).show()
+//            Toast.makeText(this.context, "Med id is: " + medicines.medicine?.id, Toast.LENGTH_LONG).show()
 
         }
 
