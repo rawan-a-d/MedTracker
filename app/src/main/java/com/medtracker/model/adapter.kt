@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.TextView
+import android.widget.Toast
 import com.medtracker.R
 
 class adapter(context: Context, val layoutResId: Int, val medList: List<Prescription>):
@@ -20,6 +21,10 @@ class adapter(context: Context, val layoutResId: Int, val medList: List<Prescrip
         val divider = view.findViewById<TextView>(R.id.divider)
 
         val medicines = medList[position]
+
+        medName.setOnClickListener {
+            Toast.makeText(this.context, "You clicked on " + medicines.medicine?.id, Toast.LENGTH_LONG).show()
+        }
 
         medName.text = medicines.medicine?.name
         info.text = medicines.dose.toString() + " pill(s)  " + medicines.frequency.toString() + " times per day"

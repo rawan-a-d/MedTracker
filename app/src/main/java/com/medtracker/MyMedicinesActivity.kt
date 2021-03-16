@@ -98,7 +98,7 @@ class MyMedicinesActivity : AppCompatActivity() {
         val db = FirebaseFirestore.getInstance()
         db.collection("prescription")
             .whereEqualTo("is_done", false)
-            .whereEqualTo("user_id", "2tq1GuRAtwtJCuJtgZeS")
+            .whereEqualTo("user_id", "537JlhdvpMWNqLdB1Gg2ZvrA5dI3")
             .get()
             .addOnCompleteListener {
                 val result: StringBuffer = StringBuffer()
@@ -129,7 +129,7 @@ class MyMedicinesActivity : AppCompatActivity() {
         val db = FirebaseFirestore.getInstance()
         db.collection("prescription")
             .whereEqualTo("is_done", true)
-            .whereEqualTo("user_id", "2tq1GuRAtwtJCuJtgZeS")
+            .whereEqualTo("user_id", "537JlhdvpMWNqLdB1Gg2ZvrA5dI3")
             .get()
             .addOnCompleteListener {
                 val result: StringBuffer = StringBuffer()
