@@ -1,5 +1,6 @@
 package com.medtracker.adapter
 
+import android.app.AlertDialog
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
@@ -10,6 +11,7 @@ import android.widget.TextView
 import android.widget.Toast
 import com.medtracker.R
 import com.medtracker.model.Prescription
+
 
 class PrescriptionAdapter(context: Context, val layoutResId: Int, val medList: List<Prescription>):
     ArrayAdapter<Prescription>(context,layoutResId,medList) {
@@ -25,7 +27,22 @@ class PrescriptionAdapter(context: Context, val layoutResId: Int, val medList: L
 
         val medicines = medList[position]
 
+
         qrBtn.setOnClickListener {
+
+            val alertbox = AlertDialog.Builder(view.getRootView().getContext())
+            alertbox.setMessage("No Internet Connection")
+            alertbox.setTitle("Warning")
+
+            alertbox.setNeutralButton("OK"
+            ) { arg0, arg1 -> }
+            alertbox.show()
+
+
+//            val dialog = LayoutInflater.from(this).inflate(R.layout.qr_dialog, null)
+//            val builder = AlertDialog.Builder(this).setView(dialog).setTitle("Qr_Code")
+//            val alert = builder.show()
+
             Toast.makeText(this.context, "Med id is: " + medicines.medicine?.id, Toast.LENGTH_LONG).show()
 
         }

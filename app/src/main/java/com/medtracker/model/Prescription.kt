@@ -3,7 +3,7 @@ package com.medtracker.model
 data class Prescription (
         var id: String? = null,
         val user_id: String? = null,
-        val medicine: medicine? = null,
+        val medicine: Medicine? = null,
         val dose: Int? = null,
         val frequency: Int? = null,
         val is_done: Boolean? = null,
