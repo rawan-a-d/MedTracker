@@ -34,5 +34,4 @@
         app:menu="@menu/profile_menu"
         android:background="@color/teal_700"
         android:layout_alignParentBottom="false"/>
-
 </RelativeLayout>

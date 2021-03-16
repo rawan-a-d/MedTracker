@@ -3,10 +3,14 @@ package com.medtracker.adapter
 import android.annotation.SuppressLint
 import android.app.AlertDialog
 import android.content.Context
+import android.content.Intent
+import android.content.Intent.FLAG_ACTIVITY_NEW_TASK
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
+import androidx.core.content.ContextCompat.startActivity
+import com.medtracker.MedicineDetailsActivity
 import com.medtracker.R
 import com.medtracker.handler.QRHandler
 import com.medtracker.model.Prescription
@@ -42,12 +46,12 @@ class PrescriptionAdapter(context: Context, val layoutResId: Int, val medList: L
 
 
             val medicineName = medicines.medicine?.name
+            val medicineId = medicines.medicine?.id
 
             qr.setImageBitmap(
                     QRHandler.StringToQRCode(
                             context,
-                            medicineName
-
+                            "Medicine name: " + medicineName + " with id: " + medicineId
                     )
             )
 
@@ -62,7 +66,21 @@ class PrescriptionAdapter(context: Context, val layoutResId: Int, val medList: L
         }
 
         medName.setOnClickListener {
-            Toast.makeText(this.context, "You clicked on " + medicines.medicine?.id, Toast.LENGTH_LONG).show()
+
+            val intent = Intent(view.getRootView().getContext(), MedicineDetailsActivity::class.java)
+            intent.putExtra("medName", medicines.medicine?.name)
+            intent.addFlags(FLAG_ACTIVITY_NEW_TASK);
+            view.getContext().startActivity(intent);
+
+
+//            val intent = Intent(view.getRootView().getContext(),MedicineDetailsActivity::class.java)
+//            intent.putExtra("medId",medicines.medicine?.id)
+//            startActivity(intent)
+
+//            view.getContext().startActivity(intent);
+
+
+//            Toast.makeText(this.context, "You clicked on " + medicines.medicine?.id, Toast.LENGTH_LONG).show()
         }
 
         medName.text = medicines.medicine?.name
