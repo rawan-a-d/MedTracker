@@ -9,6 +9,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
+import com.medtracker.MedicineDetailsActivity
 import com.medtracker.R
 import com.medtracker.handler.QRHandler
 import com.medtracker.model.Prescription
@@ -65,10 +66,10 @@ class PrescriptionAdapter(context: Context, val layoutResId: Int, val medList: L
 
         medName.setOnClickListener {
 
-//            val intent = Intent(view.getRootView().getContext(), MedicineDetailsActivity::class.java)
-//            intent.putExtra("medName", medicines.medicine?.name)
-//            intent.addFlags(FLAG_ACTIVITY_NEW_TASK);
-//            view.getContext().startActivity(intent);
+            val intent = Intent(view.getRootView().getContext(), MedicineDetailsActivity::class.java)
+            intent.putExtra("medName", medicines.medicine?.name)
+            intent.addFlags(FLAG_ACTIVITY_NEW_TASK);
+            view.getContext().startActivity(intent);
 
 
 //            val intent = Intent(view.getRootView().getContext(),MedicineDetailsActivity::class.java)
