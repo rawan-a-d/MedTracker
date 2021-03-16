@@ -3,7 +3,6 @@ package com.medtracker
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
-import android.view.View
 import android.widget.Button
 import android.widget.ListView
 import android.widget.TextView
@@ -13,7 +12,7 @@ import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.firestore.FirebaseFirestore
 import com.medtracker.model.Prescription
-import com.medtracker.model.adapter
+import com.medtracker.adapter.PrescriptionAdapter
 
 
 class MyMedicinesActivity : AppCompatActivity() {
@@ -113,7 +112,11 @@ class MyMedicinesActivity : AppCompatActivity() {
 
                         medicinesList.add(medicine)
                     }
-                    val adapter = adapter(applicationContext, R.layout.medicines, medicinesList)
+                    val adapter = PrescriptionAdapter(
+                        applicationContext,
+                        R.layout.medicines,
+                        medicinesList
+                    )
 //                  test.text = result
                     listview.adapter = adapter
                 }
@@ -144,7 +147,11 @@ class MyMedicinesActivity : AppCompatActivity() {
                         Log.d("*******" , medicine.toString())
                         medicinesList.add(medicine)
                     }
-                    val adapter = adapter(applicationContext, R.layout.medicines, medicinesList)
+                    val adapter = PrescriptionAdapter(
+                        applicationContext,
+                        R.layout.medicines,
+                        medicinesList
+                    )
 //                  textView.text = result
                     listview.adapter = adapter
                 }
