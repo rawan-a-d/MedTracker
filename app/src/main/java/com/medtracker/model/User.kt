@@ -6,6 +6,7 @@ data class User(
     var lastname: String? = null,
     var email: String? = null,
     var phone_number: String? = null,
+    var type: String? = null,
     var children: List<User>? = null) {
 
     // Methods
