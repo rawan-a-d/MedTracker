@@ -1,7 +1,5 @@
 package com.medtracker.model
 
-import com.google.firebase.firestore.Exclude
-
 data class User(
     var id: String? = null,
     var firstname: String? = null,

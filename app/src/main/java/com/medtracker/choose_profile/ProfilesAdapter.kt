@@ -1,17 +1,19 @@
-package com.medtracker
+package com.medtracker.choose_profile
 
 import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.medtracker.R
+import com.medtracker.RecyclerViewClickListener
 import com.medtracker.model.User
 import kotlinx.android.synthetic.main.recycler_view_profile.view.*
 
 class ProfilesAdapter : RecyclerView.Adapter<ProfilesAdapter.ProfileViewModel>() {
 
     private var users = mutableListOf<User>()
-    var listener: RecyclerViewClickListener? = null
+    var listener: RecyclerViewClickListener<User>? = null
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) = ProfileViewModel(
         LayoutInflater.from(parent.context)
