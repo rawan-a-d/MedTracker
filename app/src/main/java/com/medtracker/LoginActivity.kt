@@ -10,6 +10,7 @@ import android.widget.Toast
 import com.google.android.gms.tasks.OnCompleteListener
 import com.google.firebase.auth.AuthResult
 import com.google.firebase.auth.FirebaseAuth
+import com.medtracker.choose_profile.ChooseProfileActivity
 import com.medtracker.model.Shared_Prefs
 
 class LoginActivity : AppCompatActivity() {

@@ -10,8 +10,9 @@
         android:theme="@style/Theme.MedTracker">
         <activity android:name=".MyMedicinesActivity"></activity>
 
-        <activity android:name=".ChooseProfileActivity">
-        </activity>
+        <activity android:name=".home.MainActivity"></activity>
+
+        <activity android:name=".choose_profile.ChooseProfileActivity"></activity>
 
         <activity android:name=".LoginActivity">
             <intent-filter>
@@ -20,8 +21,5 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <activity android:name=".MainActivity"></activity>
     </application>
-
 </manifest>
