@@ -45,9 +45,6 @@ class MainActivity : AppCompatActivity() {
             run {
 
                 if (date != null && id != null) {
-                    // do something with selected date
-                    Toast.makeText(this, "Scanned: " + date, Toast.LENGTH_LONG).show()
-
                     // pass selected date as Timestamp
                     fetchMedicineTimes(id, Timestamp(date))
                 }

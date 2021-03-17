@@ -79,8 +79,6 @@ class ProfilesFragment : Fragment(), RecyclerViewClickListener<User> {
         when (view.id) {
             // profile name
             R.id.text_view_name_container -> {
-                Toast.makeText(this.context, "You clicked on " + user.id, Toast.LENGTH_LONG).show()
-
                 // Shared preferences
                 val editor = prefs.edit()
 
