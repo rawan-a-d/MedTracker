@@ -16,6 +16,11 @@
 
         <activity android:name=".choose_profile.ChooseProfileActivity"></activity>
 
+        <activity android:name=".ScannerActivity">
+        </activity>
+
+        <activity android:name=".MedicineDetailsActivity" />
+
         <activity android:name=".LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

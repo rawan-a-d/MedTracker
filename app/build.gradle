@@ -91,4 +91,13 @@ dependencies {
     // date picker
     implementation 'com.github.gastricspark:scrolldatepicker:0.0.1'
 
+    //used for generating QRCODE
+    implementation 'com.journeyapps:zxing-android-embedded:3.0.2@aar'
+    implementation 'com.google.zxing:core:3.2.0'
+
+    implementation 'com.squareup.picasso:picasso:2.71828'
+
+    //used for Scanning QRCODE
+    implementation 'com.journeyapps:zxing-android-embedded:3.6.0'
+
 }

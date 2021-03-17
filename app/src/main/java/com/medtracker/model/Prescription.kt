@@ -25,4 +25,8 @@ data class Prescription (
         result = 31 * result + (medicine?.name?.hashCode() ?: 0)
         return result
     }
+
+    override fun toString(): String {
+        return "Prescription(id=$id, user_id=$user_id, medicine=$medicine, dose=$dose, frequency=$frequency, is_done=$is_done, times=$times)"
+    }
 }
