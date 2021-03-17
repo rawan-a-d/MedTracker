@@ -15,6 +15,7 @@ import com.harrywhewell.scrolldatepicker.OnDateSelectedListener
 import com.medtracker.MyMedicinesActivity
 import com.medtracker.PreferenceHelper
 import com.medtracker.R
+import com.medtracker.choose_profile.ChooseProfileActivity
 import com.medtracker.model.*
 
 
@@ -78,8 +79,11 @@ class MainActivity : AppCompatActivity() {
                     true
                 }
                 //for the switch profile tab
-//                R.id.switchProfiles -> {
-//                }
+                R.id.switchProfiles -> {
+                    val intent = Intent(this, ChooseProfileActivity::class.java)
+                    startActivity(intent)
+                    true
+               }
             }
             true
         }

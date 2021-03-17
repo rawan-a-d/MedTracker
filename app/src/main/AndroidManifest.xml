@@ -9,11 +9,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MedTracker">
         <activity android:name=".MyMedicinesActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
 
         <activity android:name=".home.MainActivity"></activity>
@@ -21,7 +17,11 @@
         <activity android:name=".choose_profile.ChooseProfileActivity"></activity>
 
         <activity android:name=".LoginActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
     </application>
 </manifest>
