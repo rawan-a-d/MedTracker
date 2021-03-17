@@ -14,6 +14,7 @@ import com.google.firebase.firestore.FirebaseFirestore
 import com.medtracker.home.MainActivity
 import com.medtracker.model.Prescription
 import com.medtracker.adapter.PrescriptionAdapter
+import com.medtracker.choose_profile.ChooseProfileActivity
 import com.medtracker.handler.QRHandler
 import kotlinx.android.synthetic.main.medicinedetails.*
 
@@ -139,8 +140,11 @@ class MyMedicinesActivity : AppCompatActivity() {
                     true
                 }
                 //for the switch profile tab
-//                R.id.switchProfiles -> {
-//                }
+                R.id.switchProfiles -> {
+                    val intent = Intent(this, ChooseProfileActivity::class.java)
+                    startActivity(intent)
+                    true
+                }
             }
             true
         }

@@ -83,7 +83,7 @@ class MainActivity : AppCompatActivity() {
                     val intent = Intent(this, ChooseProfileActivity::class.java)
                     startActivity(intent)
                     true
-               }
+                }
             }
             true
         }
