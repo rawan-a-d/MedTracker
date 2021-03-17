@@ -9,6 +9,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.firebase.firestore.FirebaseFirestore
 import com.medtracker.adapter.MedicineDetailsAdapter
 import com.medtracker.adapter.PrescriptionAdapter
+import com.medtracker.choose_profile.ChooseProfileActivity
 import com.medtracker.home.MainActivity
 import com.medtracker.model.Medicine
 import com.medtracker.model.Prescription
@@ -49,9 +50,12 @@ class MedicineDetailsActivity : AppCompatActivity() {
                 R.id.myMedicines -> {
                     true
                 }
-                //for the switch profile tab
-//                R.id.switchProfiles -> {
-//                }
+//                for the switch profile tab
+                R.id.switchProfiles -> {
+                    val intent = Intent(this, ChooseProfileActivity::class.java)
+                    startActivity(intent)
+                    true
+                }
             }
             true
         }

@@ -32,7 +32,6 @@
         android:layout_marginEnd="83dp"
         android:layout_marginRight="83dp"
         android:layout_marginBottom="553dp"
-        android:background="#090909"
         android:text="Medicine Details"
         android:textColor="@color/white"
         android:textSize="20sp"
