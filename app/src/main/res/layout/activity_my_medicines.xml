@@ -34,6 +34,7 @@
             android:layout_height="50dp"
             android:drawableTop="@drawable/now_icon"
             android:padding="16dp"
+            android:layout_marginLeft="100dp"
             app:layout_constraintRight_toLeftOf="@id/buttonHistory"/>
 
         <Button
