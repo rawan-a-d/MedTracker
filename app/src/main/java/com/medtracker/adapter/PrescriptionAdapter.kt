@@ -58,10 +58,6 @@ class PrescriptionAdapter(context: Context, val layoutResId: Int, val medList: L
 
             alertbox.show()
 
-
-
-//            Toast.makeText(this.context, "Med id is: " + medicines.medicine?.id, Toast.LENGTH_LONG).show()
-
         }
 
         medName.setOnClickListener {
@@ -71,15 +67,6 @@ class PrescriptionAdapter(context: Context, val layoutResId: Int, val medList: L
             intent.addFlags(FLAG_ACTIVITY_NEW_TASK);
             view.getContext().startActivity(intent);
 
-
-//            val intent = Intent(view.getRootView().getContext(),MedicineDetailsActivity::class.java)
-//            intent.putExtra("medId",medicines.medicine?.id)
-//            startActivity(intent)
-
-//            view.getContext().startActivity(intent);
-
-
-//            Toast.makeText(this.context, "You clicked on " + medicines.medicine?.id, Toast.LENGTH_LONG).show()
         }
 
         medName.text = medicines.medicine?.name
@@ -90,6 +77,3 @@ class PrescriptionAdapter(context: Context, val layoutResId: Int, val medList: L
     }
 }
 
-//private fun String.geName() {
-//
-//}
