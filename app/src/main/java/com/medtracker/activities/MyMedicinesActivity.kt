@@ -11,6 +11,8 @@ import com.google.firebase.firestore.FirebaseFirestore
 import com.medtracker.R
 import com.medtracker.models.Prescription
 import com.medtracker.adapters.PrescriptionAdapter
+import com.medtracker.models.Shared_Prefs
+import com.medtracker.utils.PreferenceHelper
 
 
 class MyMedicinesActivity : AppCompatActivity() {
@@ -30,6 +32,7 @@ class MyMedicinesActivity : AppCompatActivity() {
         listview = findViewById(R.id.medicinesList)
         currentMedBtn = findViewById(R.id.buttonNow)
         previousMedBtn = findViewById(R.id.buttonHistory)
+
 
         /* Bottom nav bar*/
 
@@ -72,12 +75,17 @@ class MyMedicinesActivity : AppCompatActivity() {
 
     private fun GetMyCurrentMedicines() {
 
+        val prefs = PreferenceHelper.customPrefs(this, Shared_Prefs)
+
+        // get current user id
+        val id = prefs.getString("currentProfileId", null)
+
         medicinesList.clear()
 
         val db = FirebaseFirestore.getInstance()
         db.collection("prescription")
             .whereEqualTo("is_done", false)
-            .whereEqualTo("user_id", "537JlhdvpMWNqLdB1Gg2ZvrA5dI3")
+            .whereEqualTo("user_id", id)
             .get()
             .addOnCompleteListener {
                 val result: StringBuffer = StringBuffer()
@@ -100,12 +108,17 @@ class MyMedicinesActivity : AppCompatActivity() {
 
     private fun GetMyOldMedicines() {
 
+        val prefs = PreferenceHelper.customPrefs(this, Shared_Prefs)
+
+        // get current user id
+        val id = prefs.getString("currentProfileId", null)
+
         medicinesList.clear()
 
         val db = FirebaseFirestore.getInstance()
         db.collection("prescription")
             .whereEqualTo("is_done", true)
-            .whereEqualTo("user_id", "537JlhdvpMWNqLdB1Gg2ZvrA5dI3")
+            .whereEqualTo("user_id", id)
             .get()
             .addOnCompleteListener {
                 val result: StringBuffer = StringBuffer()

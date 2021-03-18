@@ -45,6 +45,8 @@ class MedicineDetailsActivity : AppCompatActivity() {
                     true
                 }
                 R.id.myMedicines -> {
+                    val intent = Intent(this, MyMedicinesActivity::class.java)
+                    startActivity(intent)
                     true
                 }
 //                for the switch profile tab
