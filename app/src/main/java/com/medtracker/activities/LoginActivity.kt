@@ -1,4 +1,4 @@
-package com.medtracker
+package com.medtracker.activities
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -10,13 +10,12 @@ import android.widget.Toast
 import com.google.android.gms.tasks.OnCompleteListener
 import com.google.firebase.auth.AuthResult
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.firestore.FirebaseFirestore
-import com.medtracker.choose_profile.ChooseProfileActivity
-import com.medtracker.model.NODE_PRESCRIPTIONS
-import com.medtracker.model.NODE_USERS
-import com.medtracker.model.Shared_Prefs
-import com.medtracker.model.User
+import com.medtracker.utils.PreferenceHelper
+import com.medtracker.R
+import com.medtracker.models.NODE_USERS
+import com.medtracker.models.Shared_Prefs
+import com.medtracker.models.User
 
 class LoginActivity : AppCompatActivity() {
     private val dbUsers = FirebaseFirestore.getInstance().collection(NODE_USERS)

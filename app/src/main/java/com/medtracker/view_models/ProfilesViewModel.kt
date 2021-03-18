@@ -1,4 +1,4 @@
-package com.medtracker.choose_profile
+package com.medtracker.view_models
 
 
 import androidx.lifecycle.LiveData
@@ -6,8 +6,8 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.google.firebase.database.*
 import com.google.firebase.firestore.FirebaseFirestore
-import com.medtracker.model.NODE_USERS
-import com.medtracker.model.User
+import com.medtracker.models.NODE_USERS
+import com.medtracker.models.User
 import java.lang.Exception
 
 // Handles database

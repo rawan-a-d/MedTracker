@@ -1,4 +1,4 @@
-package com.medtracker.choose_profile
+package com.medtracker.fragments
 
 import android.content.Intent
 import android.content.SharedPreferences
@@ -6,13 +6,16 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.medtracker.*
-import com.medtracker.home.MainActivity
-import com.medtracker.model.Shared_Prefs
-import com.medtracker.model.User
+import com.medtracker.adapters.ProfilesAdapter
+import com.medtracker.activities.MainActivity
+import com.medtracker.interfaces.RecyclerViewClickListener
+import com.medtracker.models.Shared_Prefs
+import com.medtracker.models.User
+import com.medtracker.utils.PreferenceHelper
+import com.medtracker.view_models.ProfilesViewModel
 import kotlinx.android.synthetic.main.fragment_profiles.*
 import kotlinx.android.synthetic.main.recycler_view_profile.*
 import kotlinx.android.synthetic.main.recycler_view_profile.view.*

@@ -1,22 +1,16 @@
-package com.medtracker
+package com.medtracker.activities
 
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
-import android.widget.ImageView
 import android.widget.ListView
-import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import com.google.firebase.database.*
 import com.google.firebase.firestore.FirebaseFirestore
-import com.medtracker.home.MainActivity
-import com.medtracker.model.Prescription
-import com.medtracker.adapter.PrescriptionAdapter
-import com.medtracker.choose_profile.ChooseProfileActivity
-import com.medtracker.handler.QRHandler
-import kotlinx.android.synthetic.main.medicinedetails.*
+import com.medtracker.R
+import com.medtracker.models.Prescription
+import com.medtracker.adapters.PrescriptionAdapter
 
 
 class MyMedicinesActivity : AppCompatActivity() {
@@ -94,7 +88,7 @@ class MyMedicinesActivity : AppCompatActivity() {
                     }
                     val adapter = PrescriptionAdapter(
                         applicationContext,
-                        R.layout.medicines,
+                            R.layout.medicines,
                         medicinesList
                     )
                     listview.adapter = adapter
@@ -123,7 +117,7 @@ class MyMedicinesActivity : AppCompatActivity() {
                     }
                     val adapter = PrescriptionAdapter(
                         applicationContext,
-                        R.layout.medicines,
+                            R.layout.medicines,
                         medicinesList
                     )
                     listview.adapter = adapter

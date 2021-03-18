@@ -1,4 +1,4 @@
-package com.medtracker.adapter
+package com.medtracker.adapters
 
 import android.annotation.SuppressLint
 import android.app.AlertDialog
@@ -9,10 +9,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
-import com.medtracker.MedicineDetailsActivity
+import com.medtracker.activities.MedicineDetailsActivity
 import com.medtracker.R
-import com.medtracker.handler.QRHandler
-import com.medtracker.model.Prescription
+import com.medtracker.handlers.QRHandler
+import com.medtracker.models.Prescription
 
 
 class PrescriptionAdapter(context: Context, val layoutResId: Int, val medList: List<Prescription>):

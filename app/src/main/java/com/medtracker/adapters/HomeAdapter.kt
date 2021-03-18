@@ -1,4 +1,4 @@
-package com.medtracker.home
+package com.medtracker.adapters
 
 import android.annotation.SuppressLint
 import android.content.Context
@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.TextView
 import com.medtracker.R
-import com.medtracker.model.MedicineTime
+import com.medtracker.models.MedicineTime
 
 
 class HomeAdapter (context: Context, val layoutResId: Int, val medicineTimes: List<MedicineTime>):

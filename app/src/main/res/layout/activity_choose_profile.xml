@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".choose_profile.ChooseProfileActivity"
+    tools:context=".activities.ChooseProfileActivity"
     android:background="@color/black">
 
     <TextView
@@ -22,7 +22,7 @@
 
     <fragment
         android:id="@+id/fragment"
-        android:name="com.medtracker.choose_profile.ProfilesFragment"
+        android:name="com.medtracker.fragments.ProfilesFragment"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="1dp"

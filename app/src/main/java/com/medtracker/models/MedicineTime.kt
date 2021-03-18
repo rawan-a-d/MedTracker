@@ -1,4 +1,4 @@
-package com.medtracker.model
+package com.medtracker.models
 
 data class MedicineTime(
     var time: Int? = null,
@@ -6,12 +6,6 @@ data class MedicineTime(
     var medicine: Medicine? = null
 ){
     // Methods
-    fun setTime(time: Int) {
-        if(time in 1..24) {
-            this.time = time
-        }
-    }
-
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (javaClass != other?.javaClass) return false

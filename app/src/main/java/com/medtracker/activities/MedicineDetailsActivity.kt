@@ -1,4 +1,4 @@
-package com.medtracker
+package com.medtracker.activities
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -7,12 +7,9 @@ import android.util.Log
 import android.widget.ListView
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.firebase.firestore.FirebaseFirestore
-import com.medtracker.adapter.MedicineDetailsAdapter
-import com.medtracker.adapter.PrescriptionAdapter
-import com.medtracker.choose_profile.ChooseProfileActivity
-import com.medtracker.home.MainActivity
-import com.medtracker.model.Medicine
-import com.medtracker.model.Prescription
+import com.medtracker.R
+import com.medtracker.adapters.MedicineDetailsAdapter
+import com.medtracker.models.Medicine
 
 class MedicineDetailsActivity : AppCompatActivity() {
 
@@ -86,7 +83,7 @@ class MedicineDetailsActivity : AppCompatActivity() {
                     }
                     val adapter = MedicineDetailsAdapter(
                         applicationContext,
-                        R.layout.medicinedetails,
+                            R.layout.medicinedetails,
                         detailsList
                     )
                     list.adapter = adapter

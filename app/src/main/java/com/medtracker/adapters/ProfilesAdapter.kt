@@ -1,4 +1,4 @@
-package com.medtracker.choose_profile
+package com.medtracker.adapters
 
 import android.annotation.SuppressLint
 import android.view.LayoutInflater
@@ -6,8 +6,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.medtracker.R
-import com.medtracker.RecyclerViewClickListener
-import com.medtracker.model.User
+import com.medtracker.interfaces.RecyclerViewClickListener
+import com.medtracker.models.User
 import kotlinx.android.synthetic.main.recycler_view_profile.view.*
 
 class ProfilesAdapter : RecyclerView.Adapter<ProfilesAdapter.ProfileViewModel>() {

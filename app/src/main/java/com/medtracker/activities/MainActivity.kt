@@ -1,10 +1,9 @@
-package com.medtracker.home
+package com.medtracker.activities
 
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.widget.ListView
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.firebase.Timestamp
@@ -12,11 +11,10 @@ import com.google.firebase.firestore.FieldPath
 import com.google.firebase.firestore.FirebaseFirestore
 import com.harrywhewell.scrolldatepicker.DayScrollDatePicker
 import com.harrywhewell.scrolldatepicker.OnDateSelectedListener
-import com.medtracker.MyMedicinesActivity
-import com.medtracker.PreferenceHelper
+import com.medtracker.utils.PreferenceHelper
 import com.medtracker.R
-import com.medtracker.choose_profile.ChooseProfileActivity
-import com.medtracker.model.*
+import com.medtracker.adapters.HomeAdapter
+import com.medtracker.models.*
 
 
 class MainActivity : AppCompatActivity() {

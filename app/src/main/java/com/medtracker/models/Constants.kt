@@ -1,4 +1,4 @@
-package com.medtracker.model
+package com.medtracker.models
 
 // Saves all constants
 const val NODE_USERS = "users"

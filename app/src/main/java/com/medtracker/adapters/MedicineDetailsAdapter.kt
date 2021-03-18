@@ -1,16 +1,13 @@
-package com.medtracker.adapter
+package com.medtracker.adapters
 
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
-import android.widget.Button
 import android.widget.TextView
-import android.widget.Toast
 import com.medtracker.R
-import com.medtracker.model.Medicine
-import com.medtracker.model.Prescription
+import com.medtracker.models.Medicine
 
 class MedicineDetailsAdapter (context: Context, val layoutResId: Int, val medList: List<Medicine>):
     ArrayAdapter<Medicine>(context,layoutResId,medList) {

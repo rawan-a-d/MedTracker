@@ -8,20 +8,20 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/Theme.MedTracker">
-        <activity android:name=".MyMedicinesActivity">
+        <activity android:name=".activities.MyMedicinesActivity">
 
         </activity>
 
-        <activity android:name=".home.MainActivity"></activity>
+        <activity android:name=".activities.MainActivity"></activity>
 
-        <activity android:name=".choose_profile.ChooseProfileActivity"></activity>
+        <activity android:name=".activities.ChooseProfileActivity"></activity>
 
-        <activity android:name=".ScannerActivity">
+        <activity android:name=".activities.ScannerActivity">
         </activity>
 
-        <activity android:name=".MedicineDetailsActivity" />
+        <activity android:name=".activities.MedicineDetailsActivity" />
 
-        <activity android:name=".LoginActivity">
+        <activity android:name=".activities.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

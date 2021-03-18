@@ -1,4 +1,4 @@
-package com.medtracker.handler
+package com.medtracker.handlers
 
 import android.content.Context
 import android.graphics.Bitmap

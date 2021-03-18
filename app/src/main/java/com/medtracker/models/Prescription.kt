@@ -1,7 +1,6 @@
-package com.medtracker.model
+package com.medtracker.models
 
 import com.google.firebase.Timestamp
-import java.util.*
 
 data class Prescription (
     var id: String? = null,

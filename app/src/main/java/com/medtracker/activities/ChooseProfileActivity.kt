@@ -1,4 +1,4 @@
-package com.medtracker.choose_profile
+package com.medtracker.activities
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

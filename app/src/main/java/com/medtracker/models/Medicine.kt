@@ -1,4 +1,4 @@
-package com.medtracker.model
+package com.medtracker.models
 
 data class Medicine (
     val id: String,
