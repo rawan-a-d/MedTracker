@@ -51,13 +51,5 @@
         app:layout_constraintBottom_toBottomOf="parent"
         />
 
-<!--        <com.google.android.material.bottomnavigation.BottomNavigationView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/profile"
-            app:itemBackground="@color/light_blue"
-            app:menu="@menu/profile_menu"
-            android:background="@color/light_blue"
-            android:layout_alignParentBottom="false"/>-->
 
 </androidx.constraintlayout.widget.ConstraintLayout>
