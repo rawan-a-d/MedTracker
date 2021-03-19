@@ -38,7 +38,7 @@
         android:id="@+id/textView3"
         android:layout_width="323dp"
         android:layout_height="42dp"
-        android:text="Possiple side effects:"
+        android:text="Possible side effects:"
         android:textColor="@color/white"
         android:textSize="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
