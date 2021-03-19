@@ -29,10 +29,10 @@
         android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.167"
+        app:layout_constraintHorizontal_bias="0.212"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/medName"
-        app:layout_constraintVertical_bias="0.036" />
+        app:layout_constraintVertical_bias="0.03" />
 
     <TextView
         android:id="@+id/divider"
@@ -42,10 +42,10 @@
         android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.121"
+        app:layout_constraintHorizontal_bias="0.212"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/dose"
-        app:layout_constraintVertical_bias="0.025" />
+        app:layout_constraintVertical_bias="0.03" />
 
     <Button
         android:id="@+id/qrButton"
@@ -54,6 +54,7 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentBottom="true"
+        android:layout_marginEnd="16dp"
         android:backgroundTint="@color/black"
         android:clickable="true"
         android:drawableTop="@drawable/qr"
@@ -61,9 +62,7 @@
         android:padding="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.842"
-        app:layout_constraintStart_toEndOf="@+id/medName"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.046" />
+        app:layout_constraintVertical_bias="0.05" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
